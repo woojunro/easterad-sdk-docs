@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started | EasterAd </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started | EasterAd ">
+      
+      
+      <link rel="icon" href="/../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Autovertise/EasterAd_SDK/blob/static-docs/ETA/Runtime/ETA/docfx~/en/docs/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo-light" class="svg" src="/../images/logo-light.svg" alt="EasterAd Docs">
+            <img id="logo-dark" class="svg" src="/../images/logo-dark.svg" alt="EasterAd Docs">
+            <span>EasterAd Docs</span>
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>To use the EasterAd service, you first need to install the EasterAd SDK. This document explains how to install and initialize the EasterAd SDK.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, the EasterAd SDK only supports Unity.</p>
+</div>
+<h2 id="issuing-a-game-id-from-the-easterad-dashboard">Issuing a Game ID from the EasterAd Dashboard</h2>
+<p>To use the EasterAd SDK, you first need to obtain a game ID for the game where the SDK will be installed from the EasterAd dashboard.</p>
+<p>After signing up for the EasterAd service, you can register your game by clicking the <strong>Register Game</strong> button in the <strong>Games</strong> menu on the dashboard.
+<img src="/../images/dashboard-app-list-create.jpg" alt="Game registration button on the EasterAd dashboard game list page"></p>
+<p>On the game registration screen, enter the name of the game, the platform, and the store URL where the game can be sold or downloaded.
+<img src="/../images/dashboard-game-create.jpg" alt="Game registration page on the EasterAd dashboard"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, EasterAd <strong>only supports the Windows, Android, and iOS platforms</strong>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The store URL is not mandatory, but it must be registered to request media approval for actual ad broadcasting later.</p>
+</div>
+<p>The game ID of the registered game can be found on the game list page or the game settings page.</p>
+<p><img src="/../images/dashboard-game-list.png" alt="Game list page on the EasterAd dashboard">
+<img src="/../images/dashboard-game-setting.jpg" alt="Game settings page on the EasterAd dashboard"></p>
+<h2 id="installing-the-easterad-sdk">Installing the EasterAd SDK</h2>
+<p>To insert EasterAd ads, you need to install the EasterAd SDK in your Unity project.</p>
+<h3 id="installation-using-unity-package">Installation Using Unity Package</h3>
+<p><img src="/../images/sdk-upm-install-git.jpg" alt="EasterAd SDK installation procedure"></p>
+<ol>
+<li>In the Unity Editor, click <code>Window</code> on the top bar.</li>
+<li>Select <code>Package Manager</code>.</li>
+<li>Click the <code>+</code> button and select <code>Add package from git URL...</code>.</li>
+<li>Enter <code>https://github.com/Autovertise/EasterAd_SDK_Release.git</code> in the input field and click the <code>Add</code> button.</li>
+<li>Verify that the <code>Window &gt; EasterAd</code> menu has been added.</li>
+</ol>
+<h2 id="configuring-the-easterad-sdk">Configuring the EasterAd SDK</h2>
+<p>To use the EasterAd SDK, you need to enter the game ID issued above into the EasterAd SDK.</p>
+<p><img src="/../images/unity-window-base-setting.jpg" alt="Example of configuring the EasterAd SDK"></p>
+<ol>
+<li>Click the <code>Window</code> menu.</li>
+<li>Select the <code>EasterAd</code> menu to open the EasterAd SDK settings window.</li>
+<li>Check <code>Enable EasterAd SDK</code> to activate the EasterAd SDK. Then, enter the game ID issued above in the Game ID input field. Optionally, check <code>Enable Log</code> to activate debug logs and gizmo display.</li>
+<li>Click the <code>Save</code> button to save the settings.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When you click the <code>Save</code> button, the settings are saved in the project's <a href="https://docs.unity3d.com/Manual/StreamingAssets.html">Streaming Assets</a> folder.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The SDK Key is issued after media approval. The SDK Key is required for actual ad broadcasting, but the SDK can be used in the development environment with just the Game ID.</p>
+</div>
+<p>Once the above steps are completed, you can insert ad inventories and broadcast test ads in your game. For information on how to insert ad inventories, refer to the <a href="ad-inventory.html">Inserting Ad Inventory</a> document.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
