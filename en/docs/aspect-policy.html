@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Aspect Ratio Policy for Ad Delivery | EasterAd </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Aspect Ratio Policy for Ad Delivery | EasterAd ">
+      
+      
+      <link rel="icon" href="/../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Autovertise/EasterAd_SDK/blob/static-docs/ETA/Runtime/ETA/docfx~/en/docs/aspect-policy.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo-light" class="svg" src="/../images/logo-light.svg" alt="EasterAd Docs">
+            <img id="logo-dark" class="svg" src="/../images/logo-dark.svg" alt="EasterAd Docs">
+            <span>EasterAd Docs</span>
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="aspect-ratio-policy-for-ad-delivery">Aspect Ratio Policy for Ad Delivery</h1>
+
+<p>EasterAd delivers appropriate ads considering the aspect ratio of the ad inventory inserted into the game. This document explains EasterAd's aspect ratio policy that should be considered when inserting ad inventory into the game.</p>
+<h2 id="definition-of-aspect-ratio">Definition of Aspect Ratio</h2>
+<p>The aspect ratio is the value obtained by dividing the width of the ad inventory or ad by its height.</p>
+<p><span class="math">\(aspect = \frac{width}{height}\)</span></p>
+<p>For example, the aspect ratio of an ad inventory with a width of 720 and a height of 1080 is 0.67, rounded to the second decimal place. The larger the aspect ratio, the more elongated the ad inventory or billboard is horizontally.</p>
+<h2 id="aspect-ratio-policy">Aspect Ratio Policy</h2>
+<p>EasterAd delivers ads with an aspect ratio within a certain range based on the aspect ratio of the ad inventory inserted into the game. The minimum and maximum aspect ratios of the delivered ads are as follows:</p>
+<ul>
+<li>Minimum aspect ratio: Maintain the height of the ad inventory, but the width is 70% of the ad inventory's width.</li>
+<li>Maximum aspect ratio: Maintain the width of the ad inventory, but the height is 70% of the ad inventory's height.</li>
+</ul>
+<p><span class="math">\(min(aspect) = \frac{width \times 0.7}{height}\)</span>, <span class="math">\(max(aspect) = \frac{width}{height \times 0.7}\)</span></p>
+<p>For example, for an ad inventory with a width of 720 and a height of 1080, with an aspect ratio of 0.67, the minimum aspect ratio is 0.47, and the maximum aspect ratio is 0.95.
+<img src="/../images/aspect-example.png" alt=""></p>
+<p>EasterAd's aspect ratio policy is designed to deliver at least one type of ad with an aspect ratio in every aspect ratio range from the minimum aspect ratio of 0.25 to the maximum aspect ratio of 10.00. Therefore, within the maximum-minimum aspect ratio range, you can freely set the aspect ratio of the ad inventory, and ad delivery is possible.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <strong>minimum aspect ratio of ads delivered by EasterAd is 0.25, and the maximum aspect ratio is 10.00</strong>. If the ad inventory is excessively elongated horizontally or vertically, EasterAd <strong>may not deliver ads to that ad inventory</strong>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The aspect ratio of the ad inventory inserted into the game will also change according to the aspect ratio of the delivered ad. Therefore, when placing ad inventory, be aware that <strong>the part behind the ad inventory may be exposed depending on the ad</strong>. However, the ad inventory will not become larger than its original size.</p>
+</div>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li><strong>Q. How can I deliver ads that exactly match the size of the ad inventory?</strong>
+<ul>
+<li>A. EasterAd does not yet support fixed aspect ratio functionality. We plan to support the delivery of ads with fixed aspect ratios in future updates.</li>
+</ul>
+</li>
+<li><strong>Q. How can I add letterboxes instead of reducing the size of the ad inventory to fit the ad?</strong>
+<ul>
+<li>A. Place an object such as a Plane with an appropriate color right behind the ad inventory where the EasterAd SDK is inserted.</li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

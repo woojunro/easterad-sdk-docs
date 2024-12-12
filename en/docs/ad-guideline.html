@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Ad Insertion Guidelines | EasterAd </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Ad Insertion Guidelines | EasterAd ">
+      
+      
+      <link rel="icon" href="/../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Autovertise/EasterAd_SDK/blob/static-docs/ETA/Runtime/ETA/docfx~/en/docs/ad-guideline.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo-light" class="svg" src="/../images/logo-light.svg" alt="EasterAd Docs">
+            <img id="logo-dark" class="svg" src="/../images/logo-dark.svg" alt="EasterAd Docs">
+            <span>EasterAd Docs</span>
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ad-insertion-guidelines">Ad Insertion Guidelines</h1>
+
+<p>This document explains the key points to consider when inserting EasterAd's in-game ads.</p>
+<h2 id="definition-of-valid-impressions">Definition of Valid Impressions</h2>
+<p>To generate revenue through EasterAd ads, the ads must be validly viewed within the game. The conditions for valid impressions are as follows:</p>
+<ol>
+<li>The ad must be displayed at a size of at least <strong>a certain percentage of the total screen width</strong>.</li>
+<li>The ad content must be visible on the screen <strong>without excessive obstruction</strong>.</li>
+<li>The ad must not be displayed at an <strong>excessively skewed angle</strong> from the screen.</li>
+<li>The ad content must be continuously visible on the screen for <strong>a certain period of time</strong> while meeting the above conditions.</li>
+<li>There must be a <strong>cool-off period</strong> between valid impressions.</li>
+<li>If the user has not made any input for a long time, it is considered idle, and no valid impression occurs.</li>
+<li>If multiple ads meet the above conditions simultaneously, only one of the displayed ads is evaluated as a valid impression. However, if this state continues and the cool-off period for additional valid impressions is secured, additional valid impressions can be evaluated.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The conditions related to the size of the ad display and obstruction must be observed considering <strong>obstructions by in-game objects or UI</strong>.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>EasterAd SDK uses the Input Manager to detect user input.
+For projects using the Input System, set <code>Project Settings &gt; Player &gt; Other Settings &gt; Active Input Handling</code> to <code>Both</code>.</p>
+</div>
+<p><img src="/../images/impression-gizmo.jpg" alt="Example of Gizmo displayed when a valid impression occurs"></p>
+<p>Ads that meet the above conditions are evaluated as valid impressions. The occurrence of valid impressions can be easily confirmed through Gizmo in the Unity Editor.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>For performance reasons, the evaluation of obstructions by in-game objects is based on <strong>Colliders, not visually displayed objects</strong>. Therefore, the following points should be considered when inserting ads:</p>
+<ul>
+<li>If there are transparent walls or other objects that are not visually displayed but only have Colliders, the size of the Colliders should be appropriately adjusted to meet the ad display size conditions.</li>
+<li>For objects that are rendered in the game but do not have Colliders, appropriate Colliders should be added to meet EasterAd's valid impression regulations. These Colliders should be added considering the shape and size of the objects viewed by the game user.</li>
+</ul>
+</div>
+<h2 id="ad-insertion-guidelines-1">Ad Insertion Guidelines</h2>
+<p>To secure revenue using EasterAd's SDK while enhancing the game user's experience, the following guidelines should be observed when inserting ads:</p>
+<ul>
+<li>Ideally, <strong>only one ad should be displayed</strong> in the scene viewed by the game user.
+<ul>
+<li>If multiple ads are displayed on one screen, it may be difficult for the game user to recognize and view the ads. This can make it difficult to generate additional valid impressions and may degrade the game user's experience.</li>
+</ul>
+</li>
+<li>Displaying <strong>one large ad</strong> rather than multiple small ads can promote the occurrence of valid impressions.
+<ul>
+<li>If the size of the ad content is small, it may be difficult to generate valid impressions.</li>
+</ul>
+</li>
+<li>The spacing of ad placements should be <strong>appropriately adjusted considering the game user's movement speed</strong>.
+<ul>
+<li>If the ads pass by too quickly due to the game user's movement speed, it may be difficult to recognize and view the ads.</li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

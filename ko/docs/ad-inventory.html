@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Unity 프로젝트에 광고 인벤토리 삽입하기 | EasterAd </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Unity 프로젝트에 광고 인벤토리 삽입하기 | EasterAd ">
+      
+      
+      <link rel="icon" href="/../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Autovertise/EasterAd_SDK/blob/static-docs/ETA/Runtime/ETA/docfx~/ko/docs/ad-inventory.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo-light" class="svg" src="/../images/logo-light.svg" alt="EasterAd Docs">
+            <img id="logo-dark" class="svg" src="/../images/logo-dark.svg" alt="EasterAd Docs">
+            <span>EasterAd Docs</span>
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="unity-프로젝트에-광고-인벤토리-삽입하기">Unity 프로젝트에 광고 인벤토리 삽입하기</h1>
+
+<p>EasterAd SDK를 설치한 후에는 게임에 광고 인벤토리를 삽입할 수 있습니다. 이 문서에서는 EasterAd SDK를 사용하여 Unity 프로젝트에 광고 인벤토리를 삽입하는 방법을 설명합니다.</p>
+<h2 id="광고-단위-등록하기">광고 단위 등록하기</h2>
+<p>게임에 광고를 송출하기 위해서는 광고 단위 ID가 필요합니다.</p>
+<p>광고 단위는 하나 이상의 송출될 광고들의 묶음으로, 광고 실적을 관리하기 위한 최소 단위입니다. 광고 단위는 EasterAd 대시보드에서 등록할 수 있습니다.</p>
+<ol>
+<li>EasterAd 대시보드의 게임 목록 페이지에서 광고 단위를 등록할 게임을 클릭합니다.
+<img src="/../images/dashboard-game-list-appcard.png" alt="게임 선택 화면"></li>
+<li>좌측 메뉴에서 <code>광고 단위</code>를 클릭합니다.</li>
+<li><code>광고 단위 추가</code> 버튼을 클릭합니다.
+<img src="/../images/dashboard-adunit-empty.png" alt="광고 단위 추가 버튼"></li>
+<li>광고 단위의 이름을 입력하고 <code>등록</code> 버튼을 클릭합니다. 이름으로는 게임 내 위치 등 광고 단위를 쉽게 구분할 수 있도록 작성하는 것이 좋습니다.</li>
+<li>광고 단위가 등록됩니다.
+<img src="/../images/dashboard-adunit-list.jpg" alt="광고 단위 등록 화면"></li>
+</ol>
+<p>위의 과정을 통해 광고 단위를 등록할 수 있습니다. 광고 단위가 등록되면 광고 단위 페이지에서 광고 단위 ID를 확인할 수 있습니다.</p>
+<h2 id="게임에-광고-인벤토리-삽입하기">게임에 광고 인벤토리 삽입하기</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>아래의 내용을 따라하기 전에, EasterAd SDK를 Unity 프로젝트에 설치하고 기본 설정을 완료해야 합니다. 해당 단계를 완료하지 않은 경우, <a href="getting-started.html">시작하기</a> 문서를 참고하여 설치를 완료하세요.</p>
+</div>
+<h3 id="rendering-pipeline에-알맞은-광고-asset-설치하기">Rendering Pipeline에 알맞은 광고 Asset 설치하기</h3>
+<p>EasterAd SDK를 설치한 후에는 Unity 프로젝트의 Rendering Pipeline에 알맞은 광고 Asset을 설치해야 합니다.</p>
+<p><img src="/../images/unity-window-import.jpg" alt="Rendering Pipeline 별 Asset 설치 방법"></p>
+<ol>
+<li><code>Window &gt; EasterAd</code> 메뉴를 클릭합니다.</li>
+<li>EasterAd 설정 창이 열리면, 창 하단의 버튼들 중 프로젝트의 Rendering Pipeline에 알맞은 버튼을 클릭합니다.</li>
+<li><code>Import</code> 버튼을 클릭하여 Asset을 설치합니다.</li>
+<li><code>/Assets/EasterAd</code> 폴더에 <code>Plane Item</code> prefab과 <code>Shader</code> 폴더가 생성된 것을 확인합니다.</li>
+</ol>
+<h3 id="광고-인벤토리-prefab-배치하기">광고 인벤토리 prefab 배치하기</h3>
+<p>가장 기초적인 광고 인벤토리는 설치된 EasterAd SDK의 기본 광고 인벤토리 Prefab 통해 구현할 수 있습니다.</p>
+<ol>
+<li><code>/Assets/EasterAd</code> 폴더에서 <code>Plane Item</code> Prefab을 Scene에 배치합니다.
+<img src="/../images/sdk-plane-prefab-dnd.jpg" alt="광고 인벤토리 Prefab 삽입 예시"></li>
+<li>배치한 <code>Plane Item</code>의 <code>transform</code>을 조정하여 게임에 어울리는 위치에 배치합니다.</li>
+<li>배치한 <code>Plane Item</code> Prefab의 <code>Inspector</code> 창에서 Plane 스크립트에 <code>Ad Unit ID</code>를 입력합니다. <code>Ad Unit ID</code>는 이전 단계에서 등록한 광고 단위의 ID를 입력합니다.</li>
+</ol>
+<p><img src="/../images/sdk-plane-adunitid.jpg" alt="광고 인벤토리 Prefab 설정 예시"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p><code>Plane Item</code> Prefab을 선택한 후, <code>Inspector</code>에서 <code>Mesh Renderer</code>의 <code>Material</code>을 변경하여 광고가 표시되지 않을 때의 기본 이미지를 설정할 수 있습니다. 광고가 로드되면 Material의 메인 텍스처가 광고 이미지로 대체됩니다.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>광고 인벤토리에 광고가 로드될 때에는 광고 인벤토리의 종횡비와 유사한 광고가 로드되며, 광고의 크기에 맞게 광고 인벤토리의 크기가 축소됩니다.</p>
+<p>광고 송출 종횡비 정책에 대한 자세한 내용은 <a href="aspect-policy.html">송출 광고의 종횡비 정책</a> 문서를 참고하세요.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>하나의 Ad Unit ID는 하나의 광고 인벤토리에만 사용할 수 있습니다. 여러 광고 인벤토리를 사용하려면 각각의 광고 인벤토리에 대해 Ad Unit ID를 발급받아야 합니다.</p>
+</div>
+<h3 id="고급---광고-제어-스크립트-작성하기">고급 - 광고 제어 스크립트 작성하기</h3>
+<p>기본적으로 광고 인벤토리는 <code>Start</code> 메서드가 실행될 때 광고를 로드하고 표시합니다. 필요에 따라 광고 로드 시점을 직접 제어하려면, 광고 인벤토리에 스크립트를 추가하여 광고를 제어할 수 있습니다.</p>
+<ol>
+<li>광고 인벤토리 Prefab의 <code>Plane</code> 스크립트를 선택하고 <code>Load On Start</code> 옵션을 해제합니다.
+<img src="/../images/sdk-load-on-start-inspector.jpg" alt="Inspector에서의 Load On Start 설정 예시"></li>
+<li><code>Window &gt; EasterAd</code> 메뉴에서 광고 인벤토리의 <code>Load On Start</code> 옵션을 해제할 수 있습니다.
+<img src="/../images/sdk-load-on-start-window.jpg" alt="EasterAd Window에서의 Load On Start 설정 예시"></li>
+<li>새로운 C# 스크립트를 생성합니다. 이름은 <code>AdController</code> 등 자유롭게 지정합니다.</li>
+<li>생성한 스크립트에 아래의 코드를 추가합니다. 이 코드는 광고 인벤토리가 특정 거리 이내로 들어왔을 때 광고를 로드하는 예시입니다.
+<pre><code class="lang-csharp">using UnityEngine;
+
+public class AdController : MonoBehaviour
+{
+    private onceLoaded = false;
+
+    void Update()
+    {
+        float distance = (gameObject.transform.position - Camera.main.transform.position).magnitude;
+        if (!onceLoaded &amp;&amp; distance &lt; 10.0)
+        {
+            ETA.Plane plane = GetComponent&lt;ETA.Plane&gt;();
+            plane.Load();
+            onceLoaded = true;
+        }
+    }
+}
+</code></pre>
+</li>
+<li>스크립트를 광고 인벤토리 게임 오브젝트에 추가합니다.</li>
+<li>게임을 실행하면 조건을 만족하여 Load()가 실행될 때 광고가 표시됩니다.</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>광고의 시청 여부를 확인하려면 <code>Window &gt; EasterAd</code> 메뉴에서 <code>Enable Log</code> 옵션을 활성화하고, 게임 뷰에서 Gizmos를 활성화하세요. 시청 조건을 만족하는 광고 인벤토리는 아래와 같이 녹색으로 표시됩니다.
+<img src="/../images/impression-gizmo.jpg" alt="유효 시청 발생 시 표시되는 Gizmo 예시"></p>
+<p>유효한 광고 시청 조건에 대한 자세한 내용은 <a href="ad-guideline.html">광고 삽입 가이드라인</a> 문서를 참고하세요.</p>
+</div>
+<h3 id="고급---광고판-prefab-생성하기">고급 - 광고판 Prefab 생성하기</h3>
+<p>EasterAd가 제공하는 광고 인벤토리 Prefab은 보다 게임에 어울리는 광고판을 배치하기 위해 다른 Prefab의 자식 오브젝트로 배치될 수 있습니다.</p>
+<ol>
+<li>새로운 Prefab을 생성합니다.</li>
+<li>생성한 Prefab에 게임에 어울리는 광고판을 추가하거나, 기존 애셋이 있다면 해당 애셋을 추가합니다.</li>
+<li><code>/Assets/EasterAd</code> 폴더에서 <code>Plane Item</code> Prefab을 적절한 위치에 배치합니다.</li>
+<li>광고판 Prefab 생성이 완료됩니다.</li>
+</ol>
+<p>이렇게 생성한 광고판 Prefab은 EasterAd의 기본 광고 인벤토리 Prefab과 마찬가지로 게임에 삽입하여 광고를 표시할 수 있습니다.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>광고 인벤토리 Prefab이 부모 오브젝트가 아닌 경우 광고 인벤토리의 Scale은 부모 오브젝트의 Scale에 영향을 받습니다. 이 때 광고 인벤토리 Prefab은 변형되거나 찌그러지지 않고 모든 모서리가 직각인 평면 사각형이어야 합니다.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

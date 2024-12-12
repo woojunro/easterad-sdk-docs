@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Inserting an Ad Inventory into a Unity Project | EasterAd </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Inserting an Ad Inventory into a Unity Project | EasterAd ">
+      
+      
+      <link rel="icon" href="/../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Autovertise/EasterAd_SDK/blob/static-docs/ETA/Runtime/ETA/docfx~/en/docs/ad-inventory.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo-light" class="svg" src="/../images/logo-light.svg" alt="EasterAd Docs">
+            <img id="logo-dark" class="svg" src="/../images/logo-dark.svg" alt="EasterAd Docs">
+            <span>EasterAd Docs</span>
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="inserting-an-ad-inventory-into-a-unity-project">Inserting an Ad Inventory into a Unity Project</h1>
+
+<p>After installing the EasterAd SDK, you can insert an ad inventory into your game. This document explains how to insert an ad inventory into a Unity project using the EasterAd SDK.</p>
+<h2 id="registering-an-ad-unit">Registering an Ad Unit</h2>
+<p>To deliver ads in your game, you need an ad unit ID.</p>
+<p>An ad unit is a collection of one or more ads and is the minimum unit for managing ad performance. You can register ad units on the EasterAd dashboard.</p>
+<ol>
+<li>Click on the game for which you want to register an ad unit on the game list page of the EasterAd dashboard.
+<img src="/../images/dashboard-game-list-appcard.png" alt="Game selection screen"></li>
+<li>Click on <code>Ad Units</code> in the left menu.</li>
+<li>Click the <code>Add Ad Unit</code> button.
+<img src="/../images/dashboard-adunit-empty.png" alt="Add Ad Unit button"></li>
+<li>Enter the name of the ad unit and click the <code>Register</code> button. It is recommended to name the ad unit in a way that makes it easy to distinguish, such as by its location in the game.</li>
+<li>The ad unit is registered.
+<img src="/../images/dashboard-adunit-list.jpg" alt="Ad Unit registration screen"></li>
+</ol>
+<p>You can register an ad unit through the above process. Once the ad unit is registered, you can check the ad unit ID on the ad unit page.</p>
+<h2 id="inserting-ad-inventory-into-the-game">Inserting Ad Inventory into the Game</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Before following the steps below, you must install the EasterAd SDK in your Unity project and set base information. If you have not completed these steps, refer to the <a href="getting-started.html">Getting Started</a> document to complete the installation.</p>
+</div>
+<h3 id="installing-ad-assets-suitable-for-the-rendering-pipeline">Installing Ad Assets Suitable for the Rendering Pipeline</h3>
+<p>After installing the EasterAd SDK, you need to install ad assets suitable for the Rendering Pipeline of your Unity project.</p>
+<p><img src="/../images/unity-window-import.jpg" alt="How to install assets for each Rendering Pipeline"></p>
+<ol>
+<li>Click on the <code>Window &gt; EasterAd</code> menu.</li>
+<li>When the EasterAd settings window opens, click the button suitable for your project's Rendering Pipeline at the bottom of the window.</li>
+<li>Click the <code>Import</code> button to install the assets.</li>
+<li>Verify that the <code>Plane Item</code> prefab and <code>Shader</code> folder are created in the <code>/Assets/EasterAd</code> folder.</li>
+</ol>
+<h3 id="placing-the-ad-inventory-prefab">Placing the Ad Inventory Prefab</h3>
+<p>The most basic ad inventory can be implemented through the default ad inventory prefab installed with the EasterAd SDK.</p>
+<ol>
+<li>Place the <code>Plane Item</code> prefab from the <code>/Assets/EasterAd</code> folder into the Scene.
+<img src="/../images/sdk-plane-prefab-dnd.jpg" alt="Example of inserting the ad board prefab"></li>
+<li>Adjust the <code>transform</code> of the placed <code>Plane Item</code> to position it appropriately in the game.</li>
+<li>In the <code>Inspector</code> window of the placed <code>Plane Item</code> prefab, enter the <code>Ad Unit ID</code> in the Plane script. Enter the ad unit ID registered in the previous step.</li>
+</ol>
+<p><img src="/../images/sdk-plane-adunitid.jpg" alt="Example of setting the ad board prefab"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>After selecting the <code>Plane Item</code> prefab, you can change the <code>Material</code> of the <code>Mesh Renderer</code> in the <code>Inspector</code> to set the default image displayed when no ad is shown.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>One Ad Unit ID can only be used for one ad inventory. To use multiple ad inventories, you need to obtain an Ad Unit ID for each ad inventory.</p>
+</div>
+<h3 id="advanced---writing-an-ad-control-script">Advanced - Writing an Ad Control Script</h3>
+<p>By default, the ad inventory loads and displays ads when the <code>Start</code> method is executed. If you need to control the timing of ad loading directly, you can add a script to the ad inventory to manage the ads.</p>
+<ol>
+<li>Select the <code>Plane</code> script of the ad inventory Prefab and disable the <code>Load On Start</code> option.
+<img src="/../images/sdk-load-on-start-inspector.jpg" alt="Example of Load On Start setting in Inspector"></li>
+<li>You can also disable the <code>Load On Start</code> option from the <code>Window &gt; EasterAd</code> menu.
+<img src="/../images/sdk-load-on-start-window.jpg" alt="Example of Load On Start setting in EasterAd Window"></li>
+<li>Create a new C# script. You can name it <code>AdController</code> or any name you prefer.</li>
+<li>Add the following code to the created script. This code demonstrates loading an ad when the ad inventory comes within a certain distance.
+<pre><code class="lang-csharp">using UnityEngine;
+
+public class AdController : MonoBehaviour
+{
+    private onceLoaded = false;
+
+    void Update()
+    {
+        float distance = (gameObject.transform.position - Camera.main.transform.position).magnitude;
+        if (!onceLoaded &amp;&amp; distance &lt; 10.0)
+        {
+            ETA.Plane plane = GetComponent&lt;ETA.Plane&gt;();
+            plane.Load();
+            onceLoaded = true;
+        }
+    }
+}
+</code></pre>
+</li>
+<li>Add the script to the ad inventory game object.</li>
+<li>When you run the game, the ad will be displayed.</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To check if the ad is being viewed, enable the <code>Enable Log</code> option from the <code>Window &gt; EasterAd</code> menu and activate Gizmos in the game view. Ads that meet the viewing conditions will be displayed in green as shown below.
+<img src="/../images/impression-gizmo.jpg" alt="Example of Gizmo displayed when a valid view occurs"></p>
+<p>For more details on valid ad viewing conditions, refer to the <a href="ad-guideline.html">Ad Insertion Guidelines</a> document.</p>
+</div>
+<h3 id="advanced---creating-an-billboard-prefab">Advanced - Creating an Billboard Prefab</h3>
+<p>The ad inventory prefab provided by EasterAd can be placed as a child object of another prefab to place a more suitable ad board in the game.</p>
+<ol>
+<li>Create a new prefab.</li>
+<li>Add an billboard suitable for the game to the created prefab, or add an existing asset if available.</li>
+<li>Place the <code>Plane Item</code> prefab from the <code>/Assets/EasterAd</code> folder in an appropriate location.</li>
+<li>The creation of the billboard prefab is complete.</li>
+</ol>
+<p>The created billboard prefab can be inserted into the game to display ads, just like the basic ad inventory prefab provided by EasterAd.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If the ad inventory prefab is not a child object, the scale of the ad inventory is affected by the scale of the parent object. In this case, the ad inventory prefab must be a flat rectangle with all corners at right angles, without any distortion or deformation.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
